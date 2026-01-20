@@ -137,13 +137,12 @@
 }
 
 .course-thumbnail {
-  width: 200px;        /* control size */
-  height: auto;        /* keep aspect ratio */
-  max-width: 100%;     /* responsive */
-  object-fit: contain; /* prevents stretching */
+  width: 200px;        
+  height: auto;        
+  max-width: 100%;     
+  object-fit: contain; 
 }
 
-/* Optional: smaller image on mobile */
 @media (max-width: 768px) {
   .course-header {
     flex-direction: column;
