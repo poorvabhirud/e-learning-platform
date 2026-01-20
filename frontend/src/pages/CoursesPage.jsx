@@ -3,7 +3,9 @@ import CourseCard from "../components/CourseCard";
 import { useAuthContext } from "../context/AuthContext.jsx";
 import "./CoursesPage.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -11,18 +13,18 @@ export default function CoursesPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
 
-    useEffect(() => {
-    fetch(`${API_BASE}/api/courses/all`)
-      .then(res => res.json())
-      .then(data => {
-        setCourses(data.courses || []);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+useEffect(() => {
+  fetch(`${API_BASE}/courses`)
+    .then(res => res.json())
+    .then(data => {
+      setCourses(data.courses || data); 
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error(err);
+      setLoading(false);
+    });
+}, []);
 
   const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(search.toLowerCase()) ||
