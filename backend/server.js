@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import authRoutes from "./src/routes/authRoutes.js";  
 import courseRoutes from "./src/routes/courseRoutes.js"; 
 import Enrollment from "./src/models/Enrollment.js"; 
-
+import Course from "./src/models/Course.js";
 
 dotenv.config();
 const app = express();
