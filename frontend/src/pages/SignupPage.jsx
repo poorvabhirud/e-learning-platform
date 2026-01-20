@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./SignupPage.css";
-import { useAuthContext } from "../context/AuthContext.jsx";
+import { useAuthContext } from "../context/Authcontext.jsx";
 import React from "react";
 
 

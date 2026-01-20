@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CourseCard from "../components/CourseCard";
-import { useAuthContext } from "../context/AuthContext.jsx";
+import { useAuthContext } from "../context/Authcontext.jsx";
 import "./CoursesPage.css";
 
 const API_BASE =

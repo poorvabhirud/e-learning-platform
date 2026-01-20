@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./CourseDetailPage.css";
-import { useAuthContext } from "../context/AuthContext.jsx"; 
+import { useAuthContext } from "../context/Authcontext.jsx"; 
 
 const API_BASE = "http://localhost:5000";
 
