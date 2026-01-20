@@ -1,0 +1,25 @@
+@import "./LoginPage.css";
+
+.auth-page--signup {
+  background: radial-gradient(circle at top right, #bbf7d0, #e0f2fe, #fef9c3);
+}
+
+.auth-title--signup {
+  color: #059669;
+}
+
+.auth-button--accent {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+}
+
+.auth-button--accent:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.4);
+}
+
+.auth-link--accent {
+  color: #059669;
+}

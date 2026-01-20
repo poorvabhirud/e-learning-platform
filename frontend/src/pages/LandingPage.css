@@ -1,0 +1,133 @@
+.landing {
+  min-height: calc(100vh - 56px);
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(circle at top left, #e0f2fe, #fae8ff, #fef9c3);
+}
+
+.landing__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.7rem;
+}
+
+.hero__subtitle {
+  font-size: 0.95rem;
+  color: #4b5563;
+  max-width: 30rem;
+  margin-bottom: 1.4rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-hero {
+  border-radius: 999px;
+  padding: 0.6rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-hero--primary {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  color: #f9fafb;
+  box-shadow: 0 16px 40px rgba(236, 72, 153, 0.4);
+}
+
+.btn-hero--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 50px rgba(236, 72, 153, 0.5);
+}
+
+.btn-hero--ghost {
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: #111827;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.btn-hero--ghost:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.hero__illustration {
+  position: relative;
+  min-height: 220px;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at 20% 0%, #a5b4fc, #f9a8d4, #facc15);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+.hero-badge {
+  position: absolute;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
+}
+
+.hero-badge--one {
+  top: 18%;
+  left: 10%;
+}
+
+.hero-badge--two {
+  bottom: 20%;
+  right: 12%;
+}
+
+.hero-badge--three {
+  bottom: 10%;
+  left: 18%;
+}
+
+.feature-strip {
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.9rem;
+}
+
+.feature-strip__item {
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #1f2933;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__illustration {
+    order: -1;
+  }
+}

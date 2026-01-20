@@ -1,0 +1,91 @@
+
+.course-card {
+  display: flex; 
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid #f3f4f6;
+  padding: 15px; 
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.course-card__image-container {
+  flex: 0 0 100px; 
+  height: 100px;
+  background: #f9fafb;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.course-card__side-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.course-card__content {
+  flex: 1; 
+}
+
+.course-card__content h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.course-card__content p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.course-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 4rem;                  
+  margin: 1rem 0;
+}
+
+.course-card__meta span {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.course-card__meta strong {
+  background: #fee2e2;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+}
+
+.enroll-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.enroll-btn:hover {
+  background: #4338ca;
+}
+
+
