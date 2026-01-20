@@ -177,10 +177,11 @@ app.get('/api/courses/enrollments/:userId', async (req, res) => {
 
 app.get('/api/courses', async (req, res) => {
   try {
-    const courses = await Course.find(); 
+    const courses = await Course.find();
     res.json(courses);
   } catch (err) {
-    res.status(500).json({ error: "Failed to load courses" });
+    console.error('GET /api/courses ERROR:', err);
+    res.status(500).json({ error: err.message });
   }
 });
 
