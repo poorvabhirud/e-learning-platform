@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./CourseCard.css";
 import { useAuthContext } from "../context/AuthContext.jsx";
 
+const API_BASE = import.meta.env.VITE_API_URL;
 
 const CourseCard = ({ course }) => {
   const { user } = useAuthContext(); 
@@ -15,7 +16,7 @@ const CourseCard = ({ course }) => {
     e.stopPropagation();
     if (!user) return navigate("/login");
     try {
-      const res = await fetch('http://localhost:5000/api/courses/enrollments', {
+      const res = await fetch(`${API_BASE}/courses/enrollments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
