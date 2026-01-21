@@ -7,9 +7,19 @@ import courseRoutes from "./src/routes/courseRoutes.js";
 import Enrollment from "./src/models/Enrollment.js"; 
 import Course from "./src/models/Course.js";
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://e-learning-platform-amber-rho.vercel.app",
+];
+
 dotenv.config();
 const app = express();
-app.use(cors()); 
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, 
+  })
+);
 app.use(express.json()); 
 app.use("/api/auth", authRoutes);
 
