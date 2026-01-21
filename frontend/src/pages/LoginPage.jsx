@@ -4,7 +4,7 @@ import "./LoginPage.css";
 import React from "react";
 import { useAuthContext } from "../context/AuthContext.jsx";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const LoginPage = () => {
   const { login } = useAuthContext();
@@ -25,7 +25,7 @@ const LoginPage = () => {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

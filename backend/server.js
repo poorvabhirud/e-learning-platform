@@ -131,7 +131,8 @@ const allCourses = [
   { title: "3. Native APIs", contentHtml: "<p>Camera, GPS, push notifications.</p>", order: 3 }
 ] }
 ];
-mongoose.connect(process.env.MONGO_URI)
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(async () => {
     console.log("✅ MongoDB connected");
     const Course = mongoose.model("Course");
@@ -141,8 +142,8 @@ mongoose.connect(process.env.MONGO_URI)
     const count = await Course.countDocuments();
     if (shouldForceSeed || count === 0) {
       console.log("🌱 Seeding database...");
-      await Course.deleteMany({});          
-      await Course.insertMany(allCourses);  
+      await Course.deleteMany({});
+      await Course.insertMany(allCourses);
       console.log("✅ Seeding completed.");
     } else {
       console.log(`✅ Database already has ${count} courses. Skipping seed.`);
@@ -151,6 +152,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => {
     console.error("❌ MongoDB connection error:", err.message);
   });
+
 
 
 app.post('/api/courses/enrollments', async (req, res) => {
