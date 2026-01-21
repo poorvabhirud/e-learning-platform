@@ -3,7 +3,7 @@ import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./DashboardPage.css";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 const USER_ID = null;
 
 export default function DashboardPage() {
@@ -19,7 +19,7 @@ useEffect(() => {
       const id = user._id || user.id;
       console.log("Checking dashboard for User ID:", id);
       
-      const res = await fetch(`${API_BASE}/api/courses/enrollments/${id}`);
+      const res = await fetch(`${API_BASE}/courses/enrollments/${id}`);
       const data = await res.json();
       
       console.log("Dashboard API response:", data);

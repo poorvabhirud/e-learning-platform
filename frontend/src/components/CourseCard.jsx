@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./CourseCard.css";
 import { useAuthContext } from "../context/AuthContext.jsx";
 
+
 const CourseCard = ({ course }) => {
   const { user } = useAuthContext(); 
   const navigate = useNavigate();

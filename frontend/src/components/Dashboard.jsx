@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 const USER_ID = "507f1f77bcf86cd799439011";
 
 export default function DashboardPage() {
   const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/courses/enrollments/${USER_ID}`)
+    fetch(`${API_BASE}/courses/enrollments/${USER_ID}`)
       .then(res => res.json())
       .then(data => {
         console.log("RAW API:", data);

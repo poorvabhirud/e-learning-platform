@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./CourseDetailPage.css";
 import { useAuthContext } from "../context/AuthContext.jsx"; 
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function CourseDetailPage() {
   const { slug } = useParams();
@@ -18,13 +18,13 @@ export default function CourseDetailPage() {
       try {
         setLoading(true);
         
-        const courseRes = await fetch(`${API_BASE}/api/courses/${slug}`);
+        const courseRes = await fetch(`${API_BASE}/courses/${slug}`);
         const courseData = await courseRes.json();
         setCourse(courseData.course);
         
         if (user && user.id) { 
           try {
-            const enrollRes = await fetch(`${API_BASE}/api/courses/enrollments/${user.id}`);
+            const enrollRes = await fetch(`${API_BASE}/courses/enrollments/${user.id}`);
             if (enrollRes.ok) {
               const enrollData = await enrollRes.json();
               const userEnrollment = enrollData.find(e => {
@@ -59,7 +59,7 @@ export default function CourseDetailPage() {
     try {
       setProgress(prev => ({ ...prev, [lessonId]: completed }));
       
-      const res = await fetch(`${API_BASE}/api/courses/enrollments/${enrollmentId}/progress`, {
+      const res = await fetch(`${API_BASE}/courses/enrollments/${enrollmentId}/progress`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lessonId, completed })

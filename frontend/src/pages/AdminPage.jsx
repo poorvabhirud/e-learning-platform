@@ -1,7 +1,7 @@
 import "./AdminPage.css";
 import React, { useState, useEffect } from "react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
 
 const AdminPage = () => {
   const [courses, setCourses] = useState([]);
@@ -21,14 +21,14 @@ const AdminPage = () => {
 
 const fetchCourses = async () => {
   try {
-    const res = await fetch(`${API_BASE}/api/courses`);
+    const res = await fetch(`${API_BASE}/courses`);
     if (res.ok) {
       const data = await res.json();
       setCourses(data);
     }
   } catch (err) {
     console.log("API not ready yet:", err);
-    setCourses(mockCourses); // Fallback
+    setCourses(mockCourses); 
   }
 };
 
