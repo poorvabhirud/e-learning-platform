@@ -134,19 +134,23 @@ const allCourses = [
 mongoose.connect(process.env.MONGO_URI)
   .then(async () => {
     console.log("✅ MongoDB connected");
-    const Course = mongoose.model('Course');
+    const Course = mongoose.model("Course");
+
+    const shouldForceSeed = process.env.FORCE_SEED === "true";
 
     const count = await Course.countDocuments();
-    if (count === 0) {
+    if (shouldForceSeed || count === 0) {
       console.log("🌱 Seeding database...");
-      for (let courseData of allCourses) {
-        await new Course(courseData).save();
-      }
+      await Course.deleteMany({});          
+      await Course.insertMany(allCourses);  
       console.log("✅ Seeding completed.");
     } else {
       console.log(`✅ Database already has ${count} courses. Skipping seed.`);
     }
   })
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err.message);
+  });
 
 
 app.post('/api/courses/enrollments', async (req, res) => {
